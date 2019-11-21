@@ -4,8 +4,8 @@ include 'predefiner';
 if(isset($_POST["sub"])) {
 
 
-$username = $_Post["username"];
-$password = $_Post["password"];
+$username = $_POST["username"];
+$password = $_POST["password"];
 
 
 $insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('{$username}', '{$password}')";
