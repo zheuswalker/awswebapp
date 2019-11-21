@@ -100,7 +100,7 @@ $conn->close();
                             <div class="text-danger"></div>
                         </div>
                         <div class="submit-btn-area">
-                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            <button type="submit" name= "sub">Submit <i class="ti-arrow-right"></i></button>
                             <div class="login-other row mt-4">
                                 <div class="col-6">
                                     <a class="fb-login" href="#">Sign up with <i class="fa fa-facebook"></i></a>
