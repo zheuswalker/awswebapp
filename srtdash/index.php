@@ -15,7 +15,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $info= $row['rac_accountid'];
             $_SESSION["login"] = true;
-            header("Location: /11index.html");
+            header("Location: /awswebapp/srtdash/11index.html");
             die();
 
     }
