@@ -8,9 +8,9 @@ $username = $_Post["username"];
 $password = $_Post["password"];
 
 
-$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('$username', '$password')";
+$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('{$username}', '{$password}')";
 
-
+echo $insertion;
 if ($conn->query($insertion) === true){
 $result = "Succesfully inserted";
 
@@ -83,7 +83,7 @@ $conn->close();
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="username" name="username">
+                            <input type="text" id="username" name="username">
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
