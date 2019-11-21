@@ -52,7 +52,7 @@ echo 'test';
     <div class="login-area">
         <div class="container">
             <div class="login-box ptb--100">
-                <form>
+                <form name="input" action="" method="post">
                     <div class="login-form-head">
                         <h4>Sign In</h4>
                         <p>Hello there, Sign in and start managing your Admin Template</p>
@@ -60,7 +60,7 @@ echo 'test';
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="username">Email address</label>
-                            <input type="email"  id="username" name="username" >
+                            <input type="text"   value="<? $_POST["username"] ?>" id="username" name="username" >
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
