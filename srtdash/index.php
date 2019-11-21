@@ -1,16 +1,26 @@
 <?php
-session_start();
 $errorMsg = "";
 $validUser = $_SESSION["login"] === true;
 if(isset($_POST["sub"])) {
-  $validUser = $_POST["username"] == "admin" && $_POST["password"] == "password";
-  if(!$validUser) echo "Invalid username or password.";
-  else $_SESSION["login"] = true;
+
+          $username = trim($_POST['username']);
+          $password = trim($_POST['password']);
+        $sql = "select rac_username from r_account_credentials where rac_username = '{$username}' and rac_password = md5('{$password}') or rac_email = '{$username}' and rac_password = md5('{$password}')";
+
+$result = mysqli_query($conn, $sql);
+$info = "";
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            $info= $row['rac_accountid'];
+            $_SESSION["login"] = true;
+            header("Location: /11index.html");
+            die();
+
+    }
 }
-if($validUser) {
-   header("Location: /login-success.php"); die();
 }
-echo 'test';
+      
+
 ?>
 
 <!doctype html>
@@ -96,6 +106,7 @@ echo 'test';
                             <p class="text-muted">Don't have an account? <a href="register.html">Sign up</a></p>
                         </div>
                     </div>
+                     <div class="error"><?= $errorMsg ?></div>
                 </form>
             </div>
         </div>
