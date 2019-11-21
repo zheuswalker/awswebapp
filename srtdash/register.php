@@ -8,7 +8,7 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 
-$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('$username', '$password')";
+$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('$username', md5('$password'))";
 
 if ($conn->query($insertion) === true){
 $result = "Succesfully inserted";
