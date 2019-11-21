@@ -6,7 +6,7 @@ if(isset($_POST["sub"])) {
           $username = trim($_POST['username']);
           $password = trim($_POST['password']);
         $sql = "select rac_username from r_account_credentials where rac_username = '{$username}' and rac_password = md5('{$password}') or rac_email = '{$username}' and rac_password = md5('{$password}')";
-
+            echo $sql;
 $result = mysqli_query($conn, $sql);
 $info = "";
 if (mysqli_num_rows($result) > 0) {
