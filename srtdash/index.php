@@ -1,15 +1,17 @@
 <?php
 $errorMsg = "";
+include 'predefiner.php';
 $validUser = $_SESSION["login"] === true;
 if(isset($_POST["sub"])) {
 
           $username = trim($_POST['username']);
           $password = trim($_POST['password']);
         $sql = "select rac_username,rac_accountid from r_account_credentials where rac_username = '{$username}' and rac_password = md5('{$password}') ";
-        echo $sql;
+     
 $result = mysqli_query($conn, $sql);
 $info = "";
 if (mysqli_num_rows($result) > 0) {
+       echo $sql;
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $info= $row['rac_accountid'];
             $_SESSION["login"] = true;
