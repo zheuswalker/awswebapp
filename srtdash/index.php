@@ -60,7 +60,7 @@ echo 'test';
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="username">Email address</label>
-                            <input type="text"   value="<? $_POST["username"] ?>" id="username" name="username" >
+                            <input type="text" id="username" name="username" >
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
