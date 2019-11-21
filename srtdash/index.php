@@ -1,3 +1,17 @@
+<?php
+session_start();
+$errorMsg = "";
+$validUser = $_SESSION["login"] === true;
+if(isset($_POST["sub"])) {
+  $validUser = $_POST["username"] == "admin" && $_POST["password"] == "password";
+  if(!$validUser) $errorMsg = "Invalid username or password.";
+  else $_SESSION["login"] = true;
+}
+if($validUser) {
+   header("Location: /login-success.php"); die();
+}
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -44,14 +58,14 @@
                     </div>
                     <div class="login-form-body">
                         <div class="form-gp">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1">
+                            <label for="username">Email address</label>
+                            <input type="email"  id="username" name="username" >
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
@@ -67,7 +81,7 @@
                             </div>
                         </div>
                         <div class="submit-btn-area">
-                            <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                            <button id="form_submit" type="submit" name= "sub">Submit <i class="ti-arrow-right"></i></button>
                             <div class="login-other row mt-4">
                                 <div class="col-6">
                                     <a class="fb-login" href="#">Log in with <i class="fa fa-facebook"></i></a>
