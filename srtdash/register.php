@@ -1,5 +1,5 @@
 <?php
-include 'predefiner';
+include 'predefiner.php';
 
 if(isset($_POST["sub"])) {
 
@@ -8,9 +8,8 @@ $username = $_POST["username"];
 $password = $_POST["password"];
 
 
-$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES (null,'{$username}', '{$password}')";
+$insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VALUES ('$username', '$password')";
 
-echo $insertion;
 if ($conn->query($insertion) === true){
 $result = "Succesfully inserted";
 
