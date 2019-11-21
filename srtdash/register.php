@@ -12,7 +12,7 @@ $insertion = "INSERT INTO r_account_credentials (rac_username, rac_password) VAL
 
 if ($conn->query($insertion) === true){
 $result = "Succesfully inserted";
-       header("Location: /awswebapp/srtdash/index.html");
+       header("Location: /awswebapp/srtdash/index.php");
             die();
 
 }
