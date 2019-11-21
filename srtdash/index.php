@@ -10,6 +10,7 @@ if(isset($_POST["sub"])) {
 if($validUser) {
    header("Location: /login-success.php"); die();
 }
+echo 'test';
 ?>
 
 <!doctype html>
